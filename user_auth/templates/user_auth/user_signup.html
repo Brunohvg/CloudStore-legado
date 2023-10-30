@@ -28,15 +28,7 @@
             <div class="app-auth-branding mb-4">
               <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="{% static 'assets/images/Logo-cloud-sotre.png' %}" alt="logo" /></a>
             </div>
-            {% if messages %}
-              <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
-                <div class="inner">
-                  {% for message in messages %}
-                    {{ message }}
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
+            {% include 'user_auth/messagens/message.html' %}
 
             <div class="auth-form-container text-start mx-auto">
               <form class="auth-form auth-signup-form" method="post">
