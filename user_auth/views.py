@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.core.mail import send_mail
 
 # from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -56,6 +57,13 @@ def user_signup(request):
                 signup_name, signup_email, signup_password
             )
             new_user.save()
+            send_mail(
+                "Seja Bem Vindo",
+                "Seu cadastro foi realizado com sucesso",
+                "quemestaenvidao@gmail.com",
+                ["lojasbibelo@gmail.com"],
+            )
+
             return redirect("user_auth:user_login")
 
     return render(request, "user_auth/user_signup.html")
